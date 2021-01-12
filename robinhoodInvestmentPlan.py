@@ -26,5 +26,6 @@ if remainingDays == 0:
     currentSpyEquity = float(input("Enter the current SPY equity: $"))
     print("SPY equity in plan: ${:.2f}".format(4 * planEthEquity))
     print("You should trade ${:.2f}".format(4 * planEthEquity - currentSpyEquity))
+    end = str(input("Press Any Key to Exit."))
 else:
     print()
