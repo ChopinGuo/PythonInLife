@@ -5,6 +5,7 @@ portfolioValue = float(input("Enter the portfolio value: $"))
 remainingDays = int(input("Enter the remaining work days of this month: "))
 planInvestment = 900
 planDailyInvestment = planInvestment / 20
+print("Current Cash in Plan is: ${:.2f}".format(planDailyInvestment * remainingDays))
 planEthEquity = (portfolioValue - planDailyInvestment * remainingDays) / 9
 planBitcoinEquity = 2 * planEthEquity
 print("Current Bitcoin Equity in Plan is: ${:.2f}".format(planBitcoinEquity))
@@ -28,4 +29,4 @@ if remainingDays == 0:
     print("You should trade ${:.2f}".format(4 * planEthEquity - currentSpyEquity))
     end = str(input("Press Any Key to Exit."))
 else:
-    print()
+    end = str(input("Press Any Key to Exit."))
