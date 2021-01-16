@@ -21,11 +21,15 @@ def equityInPlan(share, portfolioValue, planInvestment, planDailyInvestment, rem
     planDailyInvestment = planInvestment / 20
     return (portfolioValue - planDailyInvestment * remainingDays)  * share
 
+def balanceInPlan(share, balanceLastMonth, monthReturnRatio):
+    return share * balanceLastMonth * (1 + monthReturnRatio)
+
 portfolioValue = float(input("Enter the portfolio value: $"))
 planInvestment = 900
 planDailyInvestment = planInvestment / 20
 remainingDays = int(input("Enter the remaining work days of this month: "))
 print("Current Cash in Plan is: ${:.2f}".format(planDailyInvestment * remainingDays))
+
 planEthEquity = equityInPlan(1/9, portfolioValue, planInvestment, planDailyInvestment, remainingDays)
 planBitcoinEquity = equityInPlan(2/9, portfolioValue, planInvestment, planDailyInvestment, remainingDays)
 print("Current Bitcoin Equity in Plan is: ${:.2f}".format(planBitcoinEquity))
@@ -51,9 +55,38 @@ if remainingDays == 0 or option == 'y':
     print("You should trade ${:.2f}".format(4 * planEthEquity - currentSpyEquity))
     currentQqqEquity = float(input("Enter the current QQQ equity: $"))
     print("You should trade ${:.2f}".format(2 * planEthEquity - currentQqqEquity))
+
+    monthReturnRatio_SPY = float(input("Enter this month's return ratio of SPY: "))
+    monthReturnRatio_QQQ = float(input("Enter this month's return ratio of QQQ: "))
+    monthReturnRatio_BTC = float(input("Enter this month's return ratio of Bitcoin: "))
+    monthReturnRatio_ETH = float(input("Enter this month's return ratio of ETH: "))
+    balanceInPlan_SPY = balanceInPlan(4/9, balanceLastMonth, monthReturnRatio_SPY)
+    balanceInPlan_QQQ = balanceInPlan(2/9, balanceLastMonth, monthReturnRatio_QQQ)
+    balanceInPlan_BTC = balanceInPlan(2/9, balanceLastMonth, monthReturnRatio_BTC)
+    balanceInPlan_ETH = balanceInPlan(1/9, balanceLastMonth, monthReturnRatio_ETH)
+    balanceInPlan = balanceInPlan_SPY + balanceInPlan_QQQ + balanceInPlan_BTC + balanceInPlan_ETH
+    print("The balance in this month should be: ${:.2f}$".format(balanceInPlan))
+    print("The profit differance in this month: ${:.2f}".format(portfolioValue - balanceInPlan))
     end = str(input("Press Any Key to Exit."))
 else:
     end = str(input("Press Any Key to Exit."))
+
+# if remainingDays == 0:
+#     balanceLastMonth = 11889.73
+#     monthReturnRatio_SPY = float(input("Enter this month's return ratio of SPY: "))
+#     monthReturnRatio_QQQ = float(input("Enter this month's return ratio of QQQ: "))
+#     monthReturnRatio_BTC = float(input("Enter this month's return ratio of Bitcoin: "))
+#     monthReturnRatio_ETH = float(input("Enter this month's return ratio of ETH: "))
+#     balanceInPlan_SPY = balanceInPlan(4/9, balanceLastMonth, monthReturnRatio_SPY)
+#     balanceInPlan_QQQ = balanceInPlan(2/9, balanceLastMonth, monthReturnRatio_QQQ)
+#     balanceInPlan_BTC = balanceInPlan(2/9, balanceLastMonth, monthReturnRatio_BTC)
+#     balanceInPlan_ETH = balanceInPlan(1/9, balanceLastMonth, monthReturnRatio_ETH)
+#     balanceInPlan = balanceInPlan_SPY + balanceInPlan_QQQ + balanceInPlan_BTC + balanceInPlan_ETH
+
+
+
+## ----------------------------------------------------------------------------
+# Version 1
 
 # portfolioValue = float(input("Enter the portfolio value: $"))
 # remainingDays = int(input("Enter the remaining work days of this month: "))
@@ -86,3 +119,5 @@ else:
 #     end = str(input("Press Any Key to Exit."))
 # else:
 #     end = str(input("Press Any Key to Exit."))
+
+# ----------------------------------------------------------------------------#
