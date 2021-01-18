@@ -2,20 +2,20 @@
 # This pragrame is used to caculate how much money I should invest
 # in Bitcoin and ETH if big fluctuation occurs
 
-fobj = open("initialization.txt", 'r')
-Data = []
-for line in fobj:
-    Data.append(line)
-#    Data.append(float(line))
-# planInvestment = float(fobj.read(1))
-# print("{:.2f}".format(planInvestment))
-print(type(Data[0]))
-print(Data[0])
-# data1 = Data[0].lstrip(' \' ')
-data1 = Data[0]
-# data1 = data1.rstrip(' \' ')
-print(data1[1:4])
-fobj.close()
+# fobj = open("initialization.txt", 'r')
+# Data = []
+# for line in fobj:
+#     Data.append(line)
+# #    Data.append(float(line))
+# # planInvestment = float(fobj.read(1))
+# # print("{:.2f}".format(planInvestment))
+# print(type(Data[0]))
+# print(Data[0])
+# # data1 = Data[0].lstrip(' \' ')
+# data1 = Data[0]
+# # data1 = data1.rstrip(' \' ')
+# print(data1[1:4])
+# fobj.close()
 
 def equityInPlan(share, portfolioValue, planInvestment, planDailyInvestment, remainingDays):
     planDailyInvestment = planInvestment / 20
