@@ -43,7 +43,7 @@ option = str(input("Do you wnt to calculate the profit in this month? (y/n)"))
 
 if remainingDays == 0 or option == 'y':
     # balanceLastMonth = float(input("Enter the balance in the last month: $"))
-    balanceLastMonth = 11889.73
+    balanceLastMonth = 17195.57 # 15549.42 # 13765 # 11889.73
     profit = portfolioValue - balanceLastMonth
     print("The profit in this month is: ${:.2f}".format(profit))
     print("The profit ratio in the  past month: {:.2f}%".format(profit * 100 / balanceLastMonth))
